@@ -12,6 +12,12 @@ public class Result
 	private String location;
 	private String content;
 	private String titleNoFormatting;
+	private String lat;
+	private String lng;
+	private String streetAddress;
+	private String city;
+	private String region;
+	private String country;
 	private Image image;
 	
 	public String getTitle()
@@ -118,6 +124,67 @@ public class Result
 	public void setTitleNoFormatting(String formatting)
 	{
 		this.titleNoFormatting = formatting;
+	}
+
+	
+	public String getLat()
+	{
+		return lat;
+	}
+
+	public void setLat(String lat)
+	{
+		this.lat = lat;
+	}
+
+	public String getLng()
+	{
+		return lng;
+	}
+
+	public void setLng(String lng)
+	{
+		this.lng = lng;
+	}
+
+	public String getStreetAddress()
+	{
+		return streetAddress;
+	}
+
+	public void setStreetAddress(String streetAddress)
+	{
+		this.streetAddress = streetAddress;
+	}
+
+	public String getCity()
+	{
+		return city;
+	}
+
+	public void setCity(String city)
+	{
+		this.city = city;
+	}
+
+	public String getRegion()
+	{
+		return region;
+	}
+
+	public void setRegion(String region)
+	{
+		this.region = region;
+	}
+
+	public String getCountry()
+	{
+		return country;
+	}
+
+	public void setCountry(String country)
+	{
+		this.country = country;
 	}
 
 	public String toString()
