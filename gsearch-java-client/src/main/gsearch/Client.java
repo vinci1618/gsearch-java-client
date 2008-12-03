@@ -268,6 +268,11 @@ public class Client
 		return sendSearchRequest(NEWS_ENDPOINT, params);
 	}
 	
+	protected Response sendLocalSearchRequest(Map<String, String> params)
+	{
+		return sendSearchRequest(LOCAL_ENDPOINT, params);
+	}
+	
 	public boolean isCompressionEnabled()
 	{
 		return compressionEnabled;
@@ -355,5 +360,21 @@ public class Client
 		return searchNews(null, null, topic);
 	}
 
-	
+	public List<Result> searchLocal(double lat, double lon, String query)
+	{
+		Map<String, String> params = new LinkedHashMap<String, String>();
+		
+		params.put("sll", lat + "," + lon);
+		params.put("mrt", "localonly");
+		
+		if (query != null)
+		{
+			params.put("q", query);
+		}
+		
+		Response r = sendLocalSearchRequest(params);
+		
+		return r.getResponseData().getResults();
+		
+	}
 }
