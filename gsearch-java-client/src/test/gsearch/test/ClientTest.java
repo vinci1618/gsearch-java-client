@@ -81,6 +81,8 @@ public class ClientTest extends TestCase
 		
 		List<Result> results = c.searchLocal(lat, lon, "coffee");
 		
+		assertTrue(results.size() > 0);
+		
 		assertValidResults(results);
 		
 	}
