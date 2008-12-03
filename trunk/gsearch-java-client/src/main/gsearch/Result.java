@@ -11,6 +11,7 @@ public class Result
 	private String publishedDate;
 	private String location;
 	private String content;
+	private String titleNoFormatting;
 	private Image image;
 	
 	public String getTitle()
@@ -106,6 +107,17 @@ public class Result
 	public void setContent(String c)
 	{
 		this.content = c;
+	}
+
+	
+	public String getTitleNoFormatting()
+	{
+		return titleNoFormatting;
+	}
+
+	public void setTitleNoFormatting(String formatting)
+	{
+		this.titleNoFormatting = formatting;
 	}
 
 	public String toString()
