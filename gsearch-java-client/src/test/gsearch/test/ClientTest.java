@@ -59,6 +59,16 @@ public class ClientTest extends TestCase
 		
 	}
 
+	public void testNewsByCityAndTopic() throws Exception
+	{
+		Client c = getClient();
+		
+		List<Result> results = c.searchNews("Boston, MA", NewsTopic.BUSINESS);
+		
+		assertValidResults(results);
+		
+	}
+
 	private void assertValidResults(List<Result> results)
 	{
 		assertNotNull(results);
