@@ -189,7 +189,7 @@ public class Result
 
 	public String toString()
 	{
-		return this.getTitle() + "\n" 
+		return this.getTitleNoFormatting() + "\n" 
 				+ this.getUnescapedUrl() + "\n"
 				+ this.getPublisher() + "\n"
 				+ this.getPublishedDate() + "\n"
