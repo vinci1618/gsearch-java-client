@@ -118,13 +118,6 @@ public class Client
 			request = new HttpGet(url);
 			
 		}
-		else if ("POST".equalsIgnoreCase(httpMethod))
-		{
-			request = new HttpPost(url);
-			
-			// todo : put params in request body
-			
-		}
 		else
 		{
 			throw new RuntimeException("unsupported method: " + httpMethod);
