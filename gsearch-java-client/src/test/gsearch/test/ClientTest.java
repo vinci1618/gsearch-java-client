@@ -17,7 +17,11 @@ public class ClientTest extends TestCase
 	
 	public Client getClient()
 	{
-		return new Client();
+		Client c = new Client();
+		
+		c.setCompressionEnabled(false);
+		
+		return c;
 	}
 	
 	public void testNewsByZipCode() throws Exception
