@@ -7,6 +7,8 @@ public class Response
 {
 	private String json;
 	private ResponseData responseData;
+	private String responseDetails;
+	private String responseStatus;
 	
 	public void setJson(String j)
 	{
@@ -31,6 +33,40 @@ public class Response
 		return json;
 	}
 
+	public boolean isOK()
+	{
+		return "200".equalsIgnoreCase(this.getResponseStatus());
+	}
+	
+	public boolean isError()
+	{
+		return !isOK();
+	}
+	
+
+	public String getResponseDetails()
+	{
+		return responseDetails;
+	}
+
+
+	public void setResponseDetails(String details)
+	{
+		this.responseDetails = details;
+	}
+
+
+	public String getResponseStatus()
+	{
+		return responseStatus;
+	}
+
+
+	public void setResponseStatus(String responseStatus)
+	{
+		this.responseStatus = responseStatus;
+	}
+
 
 	public static class ResponseData
 	{
@@ -52,4 +88,5 @@ public class Response
 		}
 
 	}
+	
 }
