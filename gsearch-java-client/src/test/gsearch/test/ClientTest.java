@@ -53,7 +53,7 @@ public class ClientTest extends TestCase
 	{
 		Client c = getClient();
 		
-		List<Result> results = c.searchNews("97202", NewsTopic.SPORTS);
+		List<Result> results = c.searchNews(null, "97202", NewsTopic.SPORTS);
 		
 		assertValidResults(results);
 		
@@ -63,7 +63,17 @@ public class ClientTest extends TestCase
 	{
 		Client c = getClient();
 		
-		List<Result> results = c.searchNews("Boston, MA", NewsTopic.BUSINESS);
+		List<Result> results = c.searchNews(null, "Boston, MA", NewsTopic.BUSINESS);
+		
+		assertValidResults(results);
+		
+	}
+
+	public void testNewsQuery() throws Exception
+	{
+		Client c = getClient();
+		
+		List<Result> results = c.searchNews("Yankees", "New York, NY", null);
 		
 		assertValidResults(results);
 		
