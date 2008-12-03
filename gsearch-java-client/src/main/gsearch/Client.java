@@ -48,8 +48,15 @@ public class Client
 	{
 		this.httpClient = hClient;
 	
+
+		//
+		//  this user agent string has been crafted this way
+		//  so that Google's service will return gzip compressed responses
+		//  when Accept-Encoding: gzip is present in the request.
+		//
 		
-		setUserAgent("gsearch-java-client");
+		setUserAgent("Mozilla/5.0 (Java) Gecko/20081007 gsearch-java-client");
+		
 		setConnectionTimeout( 10 * 1000 );
 		setSocketTimeout(25 * 1000);
 		
@@ -114,6 +121,8 @@ public class Client
 			String queryString = buildQueryString(params);
 			
 			url = url + queryString;
+			
+			System.out.println(url);
 			
 			request = new HttpGet(url);
 			
