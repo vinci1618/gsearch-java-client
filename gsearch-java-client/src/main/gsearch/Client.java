@@ -226,21 +226,27 @@ public class Client
 	 */
 	public List<Result> searchNewsByLocation(String location)
 	{
-		return searchNews(location, null);
+		return searchNews(null, location, null);
 	}
 	
 	/**
 	 * 
+	 * @param query  may be null
 	 * @param location  use "city, state" (example: "Miami, FL") or zip code  ("97202") or country ("Singapore")
-	 * @param topic
+	 * @param topic may be null
 	 * 
 	 * @return
 	 * 
 	 */
-	public List<Result> searchNews(String location, NewsTopic topic)
+	public List<Result> searchNews(String query, String location, NewsTopic topic)
 	{
 		Map<String, String> params = new LinkedHashMap<String, String>();
 
+		if ( (query != null) && (query.trim().length() > 0) )
+		{
+			params.put("q", query);
+		}
+		
 		if (location != null)
 		{
 			params.put("geo", location);
@@ -346,7 +352,7 @@ public class Client
 
 	public List<Result> searchNews(NewsTopic topic)
 	{
-		return searchNews(null, topic);
+		return searchNews(null, null, topic);
 	}
 
 	
