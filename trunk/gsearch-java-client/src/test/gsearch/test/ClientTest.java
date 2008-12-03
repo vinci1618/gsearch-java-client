@@ -69,6 +69,22 @@ public class ClientTest extends TestCase
 		
 	}
 
+	public void testLocalQuery() throws Exception
+	{
+		Client c = getClient();
+		
+        // PGE Park in Portland Oregon:   45.521694,-122.691806
+
+		double lat = 45.521694;
+		
+		double lon = -122.691806;
+		
+		List<Result> results = c.searchLocal(lat, lon, "coffee");
+		
+		assertValidResults(results);
+		
+	}
+	
 	public void testNewsQuery() throws Exception
 	{
 		Client c = getClient();
@@ -98,7 +114,7 @@ public class ClientTest extends TestCase
 		System.out.println(r);
 		
 		assertNotNull(r.getTitle());
-		assertNotNull(r.getUnescapedUrl());
+		assertNotNull(r.getTitleNoFormatting());
 		
 	}
 	
