@@ -209,5 +209,6 @@ public class Result
 				+ this.getLocation() + "\n"
 				+ ( (this.getImage() == null) ? "no image" : "Image url: " + this.getImage().getUrl());
 	}
+
 	
 }
