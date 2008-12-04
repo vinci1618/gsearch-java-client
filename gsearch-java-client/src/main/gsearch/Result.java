@@ -202,12 +202,7 @@ public class Result
 
 	public String toString()
 	{
-		return this.getTitleNoFormatting() + "\n" 
-				+ this.getUnescapedUrl() + "\n"
-				+ this.getPublisher() + "\n"
-				+ this.getPublishedDate() + "\n"
-				+ this.getLocation() + "\n"
-				+ ( (this.getImage() == null) ? "no image" : "Image url: " + this.getImage().getUrl());
+		return ToStringBuilder.build(this);
 	}
 
 	

@@ -56,6 +56,7 @@ public class PhoneNumber
 	
 	public String toString()
 	{
-		return this.getNumber() + " (" + this.getType() + ")";
+		return ToStringBuilder.build(this);
 	}
+	
 }

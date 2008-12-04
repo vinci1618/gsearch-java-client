@@ -15,5 +15,9 @@ public class Image
 		this.url = u;
 	}
 	
+	public String toString()
+	{
+		return ToStringBuilder.build(this);
+	}
 	
 }
