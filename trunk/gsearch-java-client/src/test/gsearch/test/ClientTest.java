@@ -57,7 +57,7 @@ public class ClientTest extends TestCase
 	{
 		Client c = getClient();
 		
-		List<Result> results = c.searchNews(null, "97202", NewsTopic.SPORTS);
+		List<Result> results = c.searchNews(null, "97202", NewsTopic.HEADLINES);
 		
 		assertValidResults(results);
 		
