@@ -1,6 +1,8 @@
 
 package gsearch;
 
+import java.util.*;
+
 public class Result
 {
 	private String title;
@@ -19,6 +21,7 @@ public class Result
 	private String region;
 	private String country;
 	private Image image;
+	private List<PhoneNumber> phoneNumbers;
 	
 	public String getTitle()
 	{
@@ -185,6 +188,16 @@ public class Result
 	public void setCountry(String country)
 	{
 		this.country = country;
+	}
+
+	public List<PhoneNumber> getPhoneNumbers()
+	{
+		return phoneNumbers;
+	}
+
+	public void setPhoneNumbers(List<PhoneNumber> pnumbers)
+	{
+		this.phoneNumbers = pnumbers;
 	}
 
 	public String toString()
