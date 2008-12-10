@@ -100,6 +100,16 @@ public class ClientTest extends TestCase
 		assertValidResults(results);
 		
 	}
+	
+	public void testWebSearch() throws Exception
+	{
+		Client c = getClient();
+		
+		List<Result> results = c.searchWeb("google ajax search");
+		
+		assertValidResults(results);
+		
+	}
 
 	private void assertValidResults(List<Result> results)
 	{
