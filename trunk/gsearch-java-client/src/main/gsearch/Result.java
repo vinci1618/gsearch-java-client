@@ -13,6 +13,7 @@ public class Result
 	private String publishedDate;
 	private String location;
 	private String content;
+	private String contentNoFormatting;
 	private String titleNoFormatting;
 	private String lat;
 	private String lng;
@@ -225,6 +226,16 @@ public class Result
 	public void setBookId(String bookId)
 	{
 		this.bookId = bookId;
+	}
+
+	public String getContentNoFormatting()
+	{
+		return contentNoFormatting;
+	}
+
+	public void setContentNoFormatting(String cnf)
+	{
+		this.contentNoFormatting = cnf;
 	}
 
 	
