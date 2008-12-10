@@ -111,6 +111,26 @@ public class ClientTest extends TestCase
 		
 	}
 
+	public void testBookSearch() throws Exception
+	{
+		Client c = getClient();
+		
+		List<Result> results = c.searchBooks("economy");
+		
+		assertValidResults(results);
+		
+	}
+
+	public void testImageSearch() throws Exception
+	{
+		Client c = getClient();
+		
+		List<Result> results = c.searchImages("lolcats");
+		
+		assertValidResults(results);
+		
+	}
+
 	private void assertValidResults(List<Result> results)
 	{
 		assertNotNull(results);
