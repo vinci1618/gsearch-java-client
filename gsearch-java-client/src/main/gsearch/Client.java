@@ -30,6 +30,13 @@ import java.util.*;
 //
 //      http://ajax.googleapis.com/ajax/services/search/news?v=1.0&geo=Singapore
 //
+//
+//   Book search example:
+//
+//     http://ajax.googleapis.com/ajax/services/search/books?v=1.0&q=economy
+//
+//
+//
 
 public class Client
 {
@@ -37,6 +44,7 @@ public class Client
 	private static final String NEWS_SEARCH_ENDPOINT = "http://ajax.googleapis.com/ajax/services/search/news";
 	private static final String LOCAL_SEARCH_ENDPOINT = "http://ajax.googleapis.com/ajax/services/search/local";
 	private static final String WEB_SEARCH_ENDPOINT = "http://ajax.googleapis.com/ajax/services/search/web";
+	private static final String BOOK_SEARCH_ENDPOINT = "http://ajax.googleapis.com/ajax/services/search/books";
 	
 	private boolean compressionEnabled = false;
 	
@@ -288,6 +296,11 @@ public class Client
 		return sendSearchRequest(WEB_SEARCH_ENDPOINT, params);
 	}
 
+	protected Response sendBookSearchRequest(Map<String, String> params)
+	{
+		return sendSearchRequest(BOOK_SEARCH_ENDPOINT, params);
+	}
+
 	public boolean isCompressionEnabled()
 	{
 		return compressionEnabled;
@@ -382,6 +395,18 @@ public class Client
 		params.put("q", query);
 		
 		Response r = sendWebSearchRequest(params);
+		
+		return r.getResponseData().getResults();
+	}
+	
+
+	public List<Result> searchBooks(String query)
+	{
+		Map<String, String> params = new LinkedHashMap<String, String>();
+		
+		params.put("q", query);
+		
+		Response r = sendBookSearchRequest(params);
 		
 		return r.getResponseData().getResults();
 	}
