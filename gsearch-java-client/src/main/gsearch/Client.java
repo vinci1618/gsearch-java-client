@@ -34,8 +34,9 @@ import java.util.*;
 public class Client
 {
 	private HttpClient httpClient;
-	private static final String NEWS_ENDPOINT = "http://ajax.googleapis.com/ajax/services/search/news";
-	private static final String LOCAL_ENDPOINT = "http://ajax.googleapis.com/ajax/services/search/local";
+	private static final String NEWS_SEARCH_ENDPOINT = "http://ajax.googleapis.com/ajax/services/search/news";
+	private static final String LOCAL_SEARCH_ENDPOINT = "http://ajax.googleapis.com/ajax/services/search/local";
+	private static final String WEB_SEARCH_ENDPOINT = "http://ajax.googleapis.com/ajax/services/search/web";
 	
 	private boolean compressionEnabled = false;
 	
@@ -274,14 +275,19 @@ public class Client
 
 	protected Response sendNewsSearchRequest(Map<String, String> params)
 	{
-		return sendSearchRequest(NEWS_ENDPOINT, params);
+		return sendSearchRequest(NEWS_SEARCH_ENDPOINT, params);
 	}
 	
 	protected Response sendLocalSearchRequest(Map<String, String> params)
 	{
-		return sendSearchRequest(LOCAL_ENDPOINT, params);
+		return sendSearchRequest(LOCAL_SEARCH_ENDPOINT, params);
 	}
 	
+	protected Response sendWebSearchRequest(Map<String, String> params)
+	{
+		return sendSearchRequest(WEB_SEARCH_ENDPOINT, params);
+	}
+
 	public boolean isCompressionEnabled()
 	{
 		return compressionEnabled;
@@ -368,6 +374,18 @@ public class Client
 	{
 		return searchNews(null, null, topic);
 	}
+
+	public List<Result> searchWeb(String query)
+	{
+		Map<String, String> params = new LinkedHashMap<String, String>();
+		
+		params.put("q", query);
+		
+		Response r = sendWebSearchRequest(params);
+		
+		return r.getResponseData().getResults();
+	}
+	
 
 	public List<Result> searchLocal(double lat, double lon, String query)
 	{
