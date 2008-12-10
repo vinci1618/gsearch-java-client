@@ -20,6 +20,8 @@ public class Result
 	private String city;
 	private String region;
 	private String country;
+	private String authors;
+	private String bookId;
 	private Image image;
 	private List<PhoneNumber> phoneNumbers;
 	
@@ -203,6 +205,26 @@ public class Result
 	public String toString()
 	{
 		return ToStringBuilder.build(this);
+	}
+
+	public String getAuthors()
+	{
+		return authors;
+	}
+
+	public void setAuthors(String authors)
+	{
+		this.authors = authors;
+	}
+
+	public String getBookId()
+	{
+		return bookId;
+	}
+
+	public void setBookId(String bookId)
+	{
+		this.bookId = bookId;
 	}
 
 	
