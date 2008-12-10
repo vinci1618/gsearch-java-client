@@ -35,6 +35,9 @@ import java.util.*;
 //
 //     http://ajax.googleapis.com/ajax/services/search/books?v=1.0&q=economy
 //
+//   Image search example:
+//
+//      http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=lolcats
 //
 //
 
@@ -45,6 +48,7 @@ public class Client
 	private static final String LOCAL_SEARCH_ENDPOINT = "http://ajax.googleapis.com/ajax/services/search/local";
 	private static final String WEB_SEARCH_ENDPOINT = "http://ajax.googleapis.com/ajax/services/search/web";
 	private static final String BOOK_SEARCH_ENDPOINT = "http://ajax.googleapis.com/ajax/services/search/books";
+	private static final String IMAGE_SEARCH_ENDPOINT = "http://ajax.googleapis.com/ajax/services/search/images";
 	
 	private boolean compressionEnabled = false;
 	
@@ -301,6 +305,11 @@ public class Client
 		return sendSearchRequest(BOOK_SEARCH_ENDPOINT, params);
 	}
 
+	protected Response sendImageSearchRequest(Map<String, String> params)
+	{
+		return sendSearchRequest(IMAGE_SEARCH_ENDPOINT, params);
+	}
+
 	public boolean isCompressionEnabled()
 	{
 		return compressionEnabled;
@@ -407,6 +416,18 @@ public class Client
 		params.put("q", query);
 		
 		Response r = sendBookSearchRequest(params);
+		
+		return r.getResponseData().getResults();
+	}
+	
+
+	public List<Result> searchImages(String query)
+	{
+		Map<String, String> params = new LinkedHashMap<String, String>();
+		
+		params.put("q", query);
+		
+		Response r = sendImageSearchRequest(params);
 		
 		return r.getResponseData().getResults();
 	}
