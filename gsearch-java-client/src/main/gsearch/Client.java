@@ -30,6 +30,10 @@ import java.util.*;
 //
 //      http://ajax.googleapis.com/ajax/services/search/news?v=1.0&geo=Singapore
 //
+//   Local search example:
+//
+//      http://ajax.googleapis.com/ajax/services/search/local?v=1.0&q=coffee&sll=45.521694,-122.691806&mrt=localonly
+//
 //   Web search example:
 //
 //      http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=google+gson
