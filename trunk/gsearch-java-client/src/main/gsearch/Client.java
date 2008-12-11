@@ -46,6 +46,14 @@ import java.util.*;
 //
 //      http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=lolcats
 //
+//   Video search example:
+//
+//      http://ajax.googleapis.com/ajax/services/search/video?v=1.0&q=lolcats&orderBy
+//
+//   Blog search example:
+//
+//      http://ajax.googleapis.com/ajax/services/search/blogs?v=1.0&q=lolcats
+//
 //
 
 public class Client
@@ -56,6 +64,8 @@ public class Client
 	private static final String WEB_SEARCH_ENDPOINT = "http://ajax.googleapis.com/ajax/services/search/web";
 	private static final String BOOK_SEARCH_ENDPOINT = "http://ajax.googleapis.com/ajax/services/search/books";
 	private static final String IMAGE_SEARCH_ENDPOINT = "http://ajax.googleapis.com/ajax/services/search/images";
+	private static final String VIDEO_SEARCH_ENDPOINT = "http://ajax.googleapis.com/ajax/services/search/videos";
+	private static final String BLOG_SEARCH_ENDPOINT = "http://ajax.googleapis.com/ajax/services/search/blogs";
 	
 	private boolean compressionEnabled = false;
 	
@@ -457,4 +467,42 @@ public class Client
 		return r.getResponseData().getResults();
 		
 	}
+	
+	public List<Result> searchVideos(String query, OrderBy order)
+	{
+		Map<String, String> params = new LinkedHashMap<String, String>();
+		
+		params.put("q", query);
+		
+		if (order != null)
+		{
+			params.put("orderBy", order.getValue());
+		}
+		
+		Response r = sendVideoSearchRequest(params);
+		
+		return r.getResponseData().getResults();
+	}
+
+	protected Response sendVideoSearchRequest(Map<String, String> params)
+	{
+		return sendSearchRequest(VIDEO_SEARCH_ENDPOINT, params);
+	}
+
+	public List<Result> searchBlogs(String query)
+	{
+		Map<String, String> params = new LinkedHashMap<String, String>();
+		
+		params.put("q", query);
+		
+		Response r = sendBlogSearchRequest(params);
+		
+		return r.getResponseData().getResults();
+	}
+
+	protected Response sendBlogSearchRequest(Map<String, String> params)
+	{
+		return sendSearchRequest(BLOG_SEARCH_ENDPOINT, params);
+	}
+	
 }
