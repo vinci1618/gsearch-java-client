@@ -6,6 +6,8 @@ import java.util.*;
 public class Result
 {
 	private String title;
+	private String videoType;
+	private String playUrl;
 	private String unescapedUrl;
 	private String clusterUrl;
 	private String url;
@@ -236,6 +238,26 @@ public class Result
 	public void setContentNoFormatting(String cnf)
 	{
 		this.contentNoFormatting = cnf;
+	}
+
+	public String getVideoType()
+	{
+		return videoType;
+	}
+
+	public void setVideoType(String type)
+	{
+		this.videoType = type;
+	}
+
+	public String getPlayUrl()
+	{
+		return playUrl;
+	}
+
+	public void setPlayUrl(String url)
+	{
+		this.playUrl = url;
 	}
 
 	
