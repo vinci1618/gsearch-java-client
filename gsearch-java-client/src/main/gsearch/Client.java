@@ -474,10 +474,13 @@ public class Client
 		
 		params.put("q", query);
 		
-		if (order != null)
+		if (order == null)
 		{
-			params.put("orderBy", order.getValue());
+			order = OrderBy.RELEVANCE;
 		}
+		
+		params.put("orderBy", order.getValue());
+		
 		
 		Response r = sendVideoSearchRequest(params);
 		
