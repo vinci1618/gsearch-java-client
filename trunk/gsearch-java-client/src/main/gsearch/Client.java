@@ -48,7 +48,7 @@ import java.util.*;
 //
 //   Video search example:
 //
-//      http://ajax.googleapis.com/ajax/services/search/video?v=1.0&q=lolcats&orderBy
+//      http://ajax.googleapis.com/ajax/services/search/video?v=1.0&q=lolcats&orderBy=order-by-date
 //
 //   Blog search example:
 //
