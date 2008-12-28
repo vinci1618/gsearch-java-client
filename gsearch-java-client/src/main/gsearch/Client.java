@@ -169,7 +169,12 @@ public class Client
 		{
 			response = c.execute(request);
 
-			// todo : check HTTP status code ?
+			int statusCode = response.getStatusLine().getStatusCode();
+			
+			if (statusCode == 200)
+			{
+				throw new RuntimeException("unexpected HTTP response status code = " + statusCode);
+			}
 			
 			entity = response.getEntity();
 			
