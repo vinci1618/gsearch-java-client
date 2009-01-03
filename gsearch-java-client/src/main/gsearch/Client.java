@@ -171,7 +171,7 @@ public class Client
 
 			int statusCode = response.getStatusLine().getStatusCode();
 			
-			if (statusCode == 200)
+			if (statusCode != HttpStatus.SC_OK)
 			{
 				throw new RuntimeException("unexpected HTTP response status code = " + statusCode);
 			}
