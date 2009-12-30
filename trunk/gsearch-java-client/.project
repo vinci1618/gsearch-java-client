@@ -1,7 +1,9 @@
 <projectDescription>
   <name>gsearch-java-client</name>
   <comment/>
-  <projects/>
+  <projects>
+    <project>gson</project>
+  </projects>
   <buildSpec>
     <buildCommand>
       <name>org.eclipse.jdt.core.javabuilder</name>
